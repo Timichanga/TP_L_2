@@ -1,27 +1,32 @@
 #include "lib.h"
-Group::Group() {
+Group::Group() 
+{
 	size = 0;
 	data = nullptr;
 }
-Group::Group(int n_size, int n_number) {
+Group::Group(int n_size, int n_number) 
+{
 	size = n_size;
 	number = n_number;
-	cout << "!Ãðóïïà êîíñòðóêòîðîâ áûëà âûçâàíà" << endl;
+	cout << "!ÃƒÃ°Ã³Ã¯Ã¯Ã  ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã°Ã®Ã¢ Ã¡Ã»Ã«Ã  Ã¢Ã»Ã§Ã¢Ã Ã­Ã " << endl;
 }
-Group::~Group() { cout << "!Ãðóïïà äåñòðóêòîðîâ áûëà âûçâàíà" << endl; }
+Group::~Group() { cout << "!ÃƒÃ°Ã³Ã¯Ã¯Ã  Ã¤Ã¥Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã°Ã®Ã¢ Ã¡Ã»Ã«Ã  Ã¢Ã»Ã§Ã¢Ã Ã­Ã " << endl; }
 int Group::get_size() { return size; }
 int Group::get_number() { return number; }
 Student* Group::get_data() { return data; }
 void Group::set_size(int new_size) { size = new_size; }
 void Group::set_number(int new_number) { number = new_number; }
-void Group::insert(Student* new_Student) {
+void Group::insert(Student* new_Student) 
+{
 	Student* backup = new Student[size];
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) 
+	{
 		backup[i] = data[i];
 	}
 	data = new Student[size + 1];
 	data[size] = *(new_Student);
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++) 
+	{
 		data[i] = backup[i];
 	}
 	size++;
@@ -46,13 +51,13 @@ void Group::insert(int ind) {
 	size--;
 }
 void Group::show() {
-	cout << "Íîìåð ãðóïïû: " << number << endl;
+	cout << "ÃÃ®Ã¬Ã¥Ã° Ã£Ã°Ã³Ã¯Ã¯Ã»: " << number << endl;
 	if (size == 0) {
 		//cout << "There is nothing to show" << endl;
 		//exit(0);
 	}
 	else {
-		cout << "Ñðåäíèé áàëë: " << aver() << endl;
+		cout << "Ã‘Ã°Ã¥Ã¤Ã­Ã¨Ã© Ã¡Ã Ã«Ã«: " << aver() << endl;
 	}
 
 	for (int i = 0; i < size; i++) {
