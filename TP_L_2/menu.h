@@ -1,7 +1,8 @@
 #pragma once
 #include "lib.h"
 #include "group.h"
-class Menu {
+class Menu 
+{
 protected:
 	int count = 0;
 	Group* list;
