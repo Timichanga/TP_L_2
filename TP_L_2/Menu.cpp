@@ -1,10 +1,14 @@
 #include "lib.h"
-int comp(Group* j, Group* i) {
+int comp(Group* j, Group* i) 
+{
 	return (int)(((Group*)j)->get_number() - ((Group*)i)->get_number());
 }
-void Menu::main_menu() {
-	while (exit == 1) {
-		switch (show_options()) {
+void Menu::main_menu() 
+{
+	while (exit == 1) 
+	{
+		switch (show_options()) 
+		{
 		case 1:
 			show_all();
 			break;
@@ -39,25 +43,30 @@ void Menu::main_menu() {
 		}
 	}
 }
-void Menu::scan() {
+void Menu::scan() 
+{
 	FileScanner a;
 	a.scan_text();
 }
-void Menu::average_stud() {
+void Menu::average_stud() 
+{
 	string back;
 	float num = 0;
 	bool fl = false;
-	while (fl == false) {
-		try {
+	while (fl == false) 
+	{
+		try 
+			{
 			getline(cin, back);
 			num = stof(back);
 			fl = true;
-		}
-		catch (...) {
-			cout << "Введите среднюю оценку: " << endl;
-		}
+			}
+		catch (...) 
+			{
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г±Г°ГҐГ¤Г­ГѕГѕ Г®Г¶ГҐГ­ГЄГі: " << endl;
+			}
 	}
-	cout << "Список студентов, чей средний балл превышает " << num << ":" << endl;
+	cout << "Г‘ГЇГЁГ±Г®ГЄ Г±ГІГіГ¤ГҐГ­ГІГ®Гў, Г·ГҐГ© Г±Г°ГҐГ¤Г­ГЁГ© ГЎГ Г«Г« ГЇГ°ГҐГўГ»ГёГ ГҐГІ " << num << ":" << endl;
 	int flag = 0;
 	bool emp = true;
 	for (int i = 0; i < count; i++) {
@@ -69,31 +78,31 @@ void Menu::average_stud() {
 				}
 				if (flag == 1) {
 					flag = 2;
-					cout << "Номер группы:" << list[i].get_number() << endl;
+					cout << "ГЌГ®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»:" << list[i].get_number() << endl;
 				}
 				list[i].get_data()[j].show();
 			}
 		}
 		if (flag != 0) emp = false;
 	}
-	if (emp == true) cout << "Таких студентов нет" << endl;
+	if (emp == true) cout << "Г’Г ГЄГЁГµ Г±ГІГіГ¤ГҐГ­ГІГ®Гў Г­ГҐГІ" << endl;
 }
 int Menu::show_options()
 {
 	int c1;
-	cout << "Задание №1" << endl;
-	cout << "1 - Показать все группы" << endl;
-	cout << "2 - Добавить группу" << endl;
-	cout << "3 - Добавить нового студента" << endl;
-	cout << "4 - Удалить группу" << endl;
-	cout << "5 - Удалить студента" << endl;
-	cout << "6 - Отображение всех студентов, чей средний балл больше заданного; " << endl;
-	cout << "7 - Изменить группу" << endl;
-	cout << "8 - Изменить студента" << endl;
-	//Для корректной работы необходимо ввести действительное число с двумя цифрами после точки
-	cout << "Задание №2" << endl;
-	cout << "9 - Сканирование файла" << endl;
-	cout << "0 - Выход" << endl;
+	cout << "Г‡Г Г¤Г Г­ГЁГҐ В№1" << endl;
+	cout << "1 - ГЏГ®ГЄГ Г§Г ГІГј ГўГ±ГҐ ГЈГ°ГіГЇГЇГ»" << endl;
+	cout << "2 - Г„Г®ГЎГ ГўГЁГІГј ГЈГ°ГіГЇГЇГі" << endl;
+	cout << "3 - Г„Г®ГЎГ ГўГЁГІГј Г­Г®ГўГ®ГЈГ® Г±ГІГіГ¤ГҐГ­ГІГ " << endl;
+	cout << "4 - Г“Г¤Г Г«ГЁГІГј ГЈГ°ГіГЇГЇГі" << endl;
+	cout << "5 - Г“Г¤Г Г«ГЁГІГј Г±ГІГіГ¤ГҐГ­ГІГ " << endl;
+	cout << "6 - ГЋГІГ®ГЎГ°Г Г¦ГҐГ­ГЁГҐ ГўГ±ГҐГµ Г±ГІГіГ¤ГҐГ­ГІГ®Гў, Г·ГҐГ© Г±Г°ГҐГ¤Г­ГЁГ© ГЎГ Г«Г« ГЎГ®Г«ГјГёГҐ Г§Г Г¤Г Г­Г­Г®ГЈГ®; " << endl;
+	cout << "7 - Г€Г§Г¬ГҐГ­ГЁГІГј ГЈГ°ГіГЇГЇГі" << endl;
+	cout << "8 - Г€Г§Г¬ГҐГ­ГЁГІГј Г±ГІГіГ¤ГҐГ­ГІГ " << endl;
+	//Г„Г«Гї ГЄГ®Г°Г°ГҐГЄГІГ­Г®Г© Г°Г ГЎГ®ГІГ» Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГўГўГҐГ±ГІГЁ Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г®ГҐ Г·ГЁГ±Г«Г® Г± Г¤ГўГіГ¬Гї Г¶ГЁГґГ°Г Г¬ГЁ ГЇГ®Г±Г«ГҐ ГІГ®Г·ГЄГЁ
+	cout << "Г‡Г Г¤Г Г­ГЁГҐ В№2" << endl;
+	cout << "9 - Г‘ГЄГ Г­ГЁГ°Г®ГўГ Г­ГЁГҐ ГґГ Г©Г«Г " << endl;
+	cout << "0 - Г‚Г»ГµГ®Г¤" << endl;
 	cout << "-> ";
 	cin >> c1;
 	return c1;
@@ -102,7 +111,7 @@ void Menu::show_all()
 {
 	try {
 		if (count == 0) {
-			throw "Нечего показывать";
+			throw "ГЌГҐГ·ГҐГЈГ® ГЇГ®ГЄГ Г§Г»ГўГ ГІГј";
 		}
 		for (int i = 0; i < count; i++) {
 			cout << "_" << endl;
@@ -125,7 +134,7 @@ void Menu::add_new_stud() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите номер группы" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 		}
 	}
 
@@ -135,10 +144,10 @@ void Menu::add_new_stud() {
 	this->list[num - 1].insert(student);
 }
 void Menu::delete_student() {
-	cout << "Введите номер группы" << endl;
+	cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 	int num;
 	cin >> num;
-	cout << "Введите номер студента" << endl;
+	cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° Г±ГІГіГ¤ГҐГ­ГІГ " << endl;
 	int ind;
 	cin >> ind;
 	this->list[num - 1].insert(ind - 1);
@@ -156,7 +165,7 @@ void Menu::add_new_group() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите номер группы" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 		}
 	}
 
@@ -176,7 +185,7 @@ void Menu::delete_group() {
 	int ind;
 	Group backup;
 	Group* buff;
-	cout << "Введите число: ";
+	cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г·ГЁГ±Г«Г®: ";
 	cin >> ind;
 	ind -= 1;
 	for (int i = ind; i < count - 1; i++) {
@@ -205,10 +214,10 @@ void Menu::red_group() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите номер группы" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 		}
 	}
-	cout << "Введите новое число:" << endl;
+	cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ®ГҐ Г·ГЁГ±Г«Г®:" << endl;
 	fl = false;
 	int num_n = 0;
 	while (fl == false) {
@@ -218,7 +227,7 @@ void Menu::red_group() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите новый номер группы" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®ГўГ»Г© Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 		}
 	}
 	list[num - 1].set_number(num_n);
@@ -235,7 +244,7 @@ void Menu::red_student() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите номер группы" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° ГЈГ°ГіГЇГЇГ»" << endl;
 		}
 	}
 	int num_stud = 0;
@@ -247,7 +256,7 @@ void Menu::red_student() {
 			fl = true;
 		}
 		catch (...) {
-			cout << "Введите номер студента" << endl;
+			cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г­Г®Г¬ГҐГ° Г±ГІГіГ¤ГҐГ­ГІГ " << endl;
 		}
 	}
 	list[num - 1].get_data()[num_stud - 1].rewrite();
