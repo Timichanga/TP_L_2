@@ -6,4 +6,5 @@ public:
 	FileScanner();
 	~FileScanner();
 	void scan_text();
+	bool finder(const string& str, char ch);
 };
